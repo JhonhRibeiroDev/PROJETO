@@ -1,0 +1,21 @@
+# Ignorar containers, imagens e volumes
+**/volumes/
+**/tmp/
+**/logs/
+
+# Ignorar arquivos temporários e locais
+docker-compose.override.yml
+docker-compose.local.yml
+
+# Arquivos de configuração locais
+.docker/
+.env
+*.env
+
+# Dados de compilação e cache
+**/build/
+**/cache/
+*.pid
+
+# Ignorar imagens do Docker
+**/image/
