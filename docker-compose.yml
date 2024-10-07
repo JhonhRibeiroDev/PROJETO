@@ -1,0 +1,38 @@
+networks:
+  joomla-net:
+    driver: bridge
+
+services:
+  web:
+    container_name: joomla-web
+    build:      
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    networks:
+      - joomla-net
+    depends_on:
+      - db
+    volumes:
+      - ./public:/var/www/html
+      - ./docker/php.ini:/etc/php/8.3/apache2/conf.d/custom-php.ini
+
+
+  db:
+    container_name: joomla-db
+    image: mysql:8.1
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: joomla
+      MYSQL_USER: joomla
+      MYSQL_PASSWORD: joomlapassword
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - joomla-net
+
+volumes:
+  db_data:
