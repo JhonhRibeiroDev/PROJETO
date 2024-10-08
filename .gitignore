@@ -19,3 +19,8 @@ docker-compose.local.yml
 
 # Ignorar imagens do Docker
 **/image/
+
+
+#Impede a alteração da pasta public
+public/*
+
