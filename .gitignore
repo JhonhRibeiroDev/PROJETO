@@ -21,6 +21,11 @@ docker-compose.local.yml
 **/image/
 
 
+#Impede a alteração da pasta public
+public/*
+
+
+
 
 
 public/*
