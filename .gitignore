@@ -19,3 +19,8 @@ docker-compose.local.yml
 
 # Ignorar imagens do Docker
 **/image/
+
+
+
+
+public/*
